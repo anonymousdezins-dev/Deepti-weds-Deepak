@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Meena Family | Wedding Invitation</title>
-    <meta name="description" content="You are invited to the majestic wedding union.">
+    <title>Deepti & Deepak | Wedding Invitation</title>
+    <meta name="description" content="You are invited to the majestic wedding union of Deepti & Deepak.">
     <!-- Google Fonts for Luxury Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,23 +13,18 @@
 </head>
 <body>
 
-    <!-- Background Audio -->
     <audio id="bg-music" loop preload="auto">
         <source src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" type="audio/mpeg">
     </audio>
-
-    <!-- Subtle Page Transition Sound -->
     <audio id="transition-sfx" preload="auto">
         <source src="https://assets.mixkit.co/sfx/preview/mixkit-swipe-whoosh-soft-2495.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Canvas for Floating Petals -->
     <canvas id="petals-canvas"></canvas>
 
-    <!-- Slider Container -->
     <main id="main-content" class="slider-container">
         
-        <!-- ================= PAGE 1: GANESHA INTRO ================= -->
+        <!-- PAGE 0: GANESHA INTRO -->
         <section class="slide slide-intro active" id="page-0">
             <div class="embossed-bg"></div>
             <div class="intro-content">
@@ -37,16 +32,16 @@
                     <img src="assets/gold_ganesha.png" alt="Ganesha" id="ganesha-img" style="display:none;">
                     <div class="fallback-icon zoom-in-anim">ॐ</div>
                 </div>
-                <!-- 2-3 Second Delayed Button -->
-                <div class="start-btn-container delay-show" id="start-node">
-                    <button class="primary-btn animated-scale-glow" onclick="nextSlide()">
-                        Accept Invitation, Let's Go
-                    </button>
-                </div>
+            </div>
+            <!-- Placed outside of intro-content so we can absolutely position it at the bottom -->
+            <div class="start-btn-container delay-show-btn" id="start-node">
+                <button class="primary-btn animated-scale-glow" onclick="nextSlide()">
+                    Accept Invitation, Let's Go
+                </button>
             </div>
         </section>
 
-        <!-- ================= PAGE 2: INVITATION MESSAGE ================= -->
+        <!-- PAGE 1: INVITATION MESSAGE -->
         <section class="slide scene-welcome" id="page-1">
             <div class="scene-inner">
                 <div class="floral-frame-top"></div>
@@ -55,9 +50,9 @@
                         <h2 class="slide-fade-stagger" style="--delay: 0.2s">Meena Family<br>Welcomes You</h2>
                         <div class="separator-line slide-fade-stagger" style="--delay: 0.6s"></div>
                         <p class="sub-text slide-fade-stagger" style="--delay: 1s">
-                            Mr. Mansingh Meena <br>and<br> Mrs. Hareshi Meena<br><br>
-                            cordially invite you to the wedding of <br><strong>Aisha & Rohan</strong>.<br><br>
-                            They request the honor of your presence to celebrate this joyous occasion and bless the couple on their special day.
+                            With the divine grace of God,<br><br>
+                            We request the honor of your presence and blessings to celebrate the auspicious wedding of<br><br>
+                            <span class="highlight-names">Deepti & Deepak</span>
                         </p>
                     </div>
                 </div>
@@ -65,83 +60,145 @@
             </div>
         </section>
 
-        <!-- ================= PAGE 3: LAGUN ================= -->
-        <section class="slide scene-lagun" id="page-2">
+        <!-- PAGE 2: BRIDE & GROOM DETAILS -->
+        <section class="slide scene-details" id="page-2">
             <div class="scene-inner">
                 <div class="card float-up">
-                    <div class="card-border">
-                        <h2 class="script-title">Lagun</h2>
-                        <div class="separator-line"></div>
-                        <p class="sub-text">The commencement of our auspicious journey.</p>
-                        <p class="time">9:00 AM</p>
-                        <p class="date">09 March 2026</p>
+                    <div class="card-border compact-text">
+                        <h3 class="role-title">The Bride</h3>
+                        <h2 class="person-name">Deepti</h2>
+                        <p class="family-details">
+                            Granddaughter of: Mrs. Dhankor Devi & Mr. Shreephool<br>
+                            Daughter of: Mrs. Hareshi & Mr. Man Singh<br>
+                            <span class="residence">Residence: Chhoti Udai, Tehsil Wajirpur</span>
+                        </p>
+                        
+                        <div class="script-with">weds</div>
+                        
+                        <h3 class="role-title">The Groom</h3>
+                        <h2 class="person-name">Deepak</h2>
+                        <p class="family-details">
+                            Grandson of: Mrs. Ramghani Devi & Mr. Devaram Ji<br>
+                            Son of: Mrs. Sushila Devi & Mr. Sitaram Ji<br>
+                            <span class="residence">Residence: Moti Kui, Dewali (Tonk)</span>
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= PAGE 4: HALDI ================= -->
-        <section class="slide scene-haldi" id="page-3">
+        <!-- PAGE 3: LAGUN -->
+        <section class="slide scene-lagun" id="page-3">
+            <div class="scene-inner">
+                <div class="card float-up">
+                    <div class="card-border">
+                        <h2 class="script-title">Shubh Lagun</h2>
+                        <div class="separator-line"></div>
+                        <p class="sub-text">The commencement of our auspicious journey.</p>
+                        <p class="time">Morning</p>
+                        <p class="date">23 April 2026 (Thursday)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: HALDI & MEHENDI -->
+        <section class="slide scene-haldi" id="page-4">
             <div class="scene-inner">
                 <div class="yellow-glow"></div>
                 <div class="card float-up glass-card">
-                    <h2 class="script-title">Haldi</h2>
-                    <p class="sub-text">A splash of joy, a touch of gold.</p>
-                    <p class="time">10:30 AM</p>
-                    <p class="date">10 March 2026</p>
-                    <p class="dress-code">Dress Code: Yellow & Vibrant</p>
+                    <h2 class="script-title">Haldi & Mehendi</h2>
+                    <p class="sub-text">A splash of joy and intricate patterns of love.</p>
+                    <p class="time">Evening</p>
+                    <p class="date">27 April 2026 (Monday)</p>
+                    <p class="dress-code">Dress Code: Yellow & Earthy Greens</p>
                 </div>
             </div>
         </section>
 
-        <!-- ================= PAGE 5: MEHENDI ================= -->
-        <section class="slide scene-mehendi" id="page-4">
+        <!-- PAGE 5: MANDAP & BHAAT -->
+        <section class="slide scene-lagun" id="page-5">
             <div class="scene-inner">
-                <div class="card float-up glass-card green-tint">
-                    <h2 class="script-title">Mehendi</h2>
-                    <p class="sub-text">Intricate patterns of love.</p>
-                    <p class="time">4:00 PM</p>
-                    <p class="date">10 March 2026</p>
-                    <p class="dress-code">Dress Code: Earthy Greens</p>
+                <div class="card float-up royal-card">
+                    <h2 class="script-title">Mandap & Bhaat</h2>
+                    <p class="sub-text">Sacred rituals and family joyous cheer.</p>
+                    <p class="time">Evening</p>
+                    <p class="date">28 April 2026 (Tuesday)</p>
                 </div>
             </div>
         </section>
 
-        <!-- ================= PAGE 6: WEDDING ================= -->
-        <section class="slide scene-wedding" id="page-5">
-            <!-- This section uses the generated floral arch image as background -->
+        <!-- PAGE 6: KIDS INVITE -->
+        <section class="slide scene-kids" id="page-6">
+            <div class="scene-inner">
+                <div class="card float-up soft-card">
+                    <div class="card-border kids-border">
+                        <h2 class="script-title" style="font-size: 2.8rem; color: var(--warm-red);">Special Invitation</h2>
+                        <p class="kids-rhyme">
+                            “With giggles, hugs, and smiles so true,<br>
+                            We bring this special invite to you,<br>
+                            Join our Bua’s wedding cheer,<br>
+                            Your presence will mean so much here!”
+                        </p>
+                        <p class="kids-signoff">– By Rehans, Ayaansh, Shubhansh</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 7: WEDDING -->
+        <section class="slide scene-wedding" id="page-7">
             <div class="wedding-bg"></div>
             <div class="wedding-overlay"></div>
             <div class="scene-inner content-bottom">
                 <div class="card float-up royal-card">
-                    <h2 class="script-title">The Wedding</h2>
+                    <h2 class="script-title">Shubh Vivaah</h2>
                     <p class="sub-text">Witness our union under the floral arch.</p>
-                    <p class="time">Baraat: 7:00 PM | Pheras: 11:30 PM</p>
-                    <p class="date">11 March 2026</p>
+                    <p class="time">Night</p>
+                    <p class="date">29 April 2026 (Wednesday)</p>
                 </div>
             </div>
         </section>
 
-        <!-- ================= PAGE 7: VIDAI ================= -->
-        <section class="slide scene-vidai" id="page-6">
+        <!-- PAGE 8: VIDAI -->
+        <section class="slide scene-vidai" id="page-8">
             <div class="scene-inner">
                 <div class="card float-up glass-card soft-card">
-                    <h2 class="script-title">Vidai</h2>
+                    <h2 class="script-title">Vidaai</h2>
                     <p class="sub-text">A heartfelt farewell, a new beginning.</p>
-                    <p class="time">Early Morning</p>
-                    <p class="date">12 March 2026</p>
+                    <p class="time">Morning</p>
+                    <p class="date">30 April 2026 (Thursday)</p>
                 </div>
             </div>
-            
-            <div class="final-actions float-up delay-show-vidai">
-                <button class="action-btn" onclick="openMap()">View Map</button>
-                <button class="action-btn rsvp-btn">RSVP</button>
+        </section>
+
+        <!-- PAGE 9: VENUE, RSVP & COMPLIMENTS -->
+        <section class="slide scene-rsvp" id="page-9">
+            <div class="scene-inner scrollable-content">
+                <div class="card float-up royal-message-card">
+                    
+                    <h3 class="rsvp-heading">Venue</h3>
+                    <p class="rsvp-text">Self residence, Chhoti Udai, Tehsil Wajirpur, District S.M.</p>
+                    <button class="action-btn rsvp-btn" style="margin-top: 10px;" onclick="window.open('https://maps.app.goo.gl/UQZSYSh2ZPe38Gzh6?g_st=aw', '_blank')">View on Maps</button>
+                    
+                    <div class="separator-line" style="margin: 20px auto;"></div>
+                    
+                    <h3 class="rsvp-heading">Best Compliments From</h3>
+                    <p class="rsvp-text list-names">Lakhan Bai & Ram Singh Dayal, Priyanka & Udayraj, Sharmila & Anup, Satyanarayan & All Rajilwad Family.</p>
+
+                    <h3 class="rsvp-heading" style="margin-top: 15px;">Awaiting to Welcome</h3>
+                    <p class="rsvp-text list-names">Gajanan Bai & Muniraj, Mukeshi & Chuttanlal, Gyani & Haricharan, Mausam & Munesh, Aneeta & Bhimsingh, Sonam & Samay Singh, Pooja & Dharasingh.</p>
+                    
+                    <h3 class="rsvp-heading" style="margin-top: 15px;">R.S.V.P.</h3>
+                    <p class="rsvp-text list-names">Rishi, Deepesh, Nimesh, Manas, Shubham, Kalpesh, Preeti, Siyona, Deeksha.</p>
+
+                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Global Swipe Indicator (Hidden on Page 1) -->
+    <!-- Global Swipe Indicator -->
     <div id="swipe-indicator" class="hidden" onclick="nextSlide(true)">
         <div class="swipe-animation-container">
             <div class="arrow-container">
@@ -149,7 +206,7 @@
                 <span class="arrow arrow-2"></span>
                 <span class="arrow arrow-3"></span>
             </div>
-            <span class="swipe-text">Swipe for Next Event</span>
+            <span class="swipe-text">Swipe for Next</span>
         </div>
     </div>
 

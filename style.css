@@ -167,6 +167,24 @@ body, html {
     100% { opacity: 1; transform: translateY(0); }
 }
 
+.delay-show-btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, 30px);
+    animation: slideUpFadeBtn 1s ease 2.5s forwards; /* 2.5s delay */
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes slideUpFadeBtn {
+    0% { opacity: 0; transform: translate(-50%, 30px); }
+    100% { opacity: 1; transform: translate(-50%, 0); }
+}
+
 .slide-fade-stagger {
     opacity: 0;
     transform: translateY(15px);
@@ -405,6 +423,101 @@ h2 {
 .action-btn { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-dark); padding: 12px 25px; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
 .rsvp-btn { background: var(--gold-primary); color: #fff; }
 .action-btn:hover { background: var(--gold-dark); color: #fff; }
+
+/* =========================================
+   New Details, Kids & RSVP Specifics
+   ========================================= */
+.highlight-names {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold-dark);
+}
+
+.compact-text {
+    padding: 20px 10px;
+}
+
+.role-title {
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    color: var(--text-light);
+    margin-bottom: -5px;
+    font-weight: normal;
+}
+
+.person-name {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.family-details {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.residence {
+    display: block;
+    margin-top: 5px;
+    font-weight: 500;
+    color: var(--gold-dark);
+}
+
+.scene-kids { background-color: #FFFDF5; }
+
+.kids-border {
+    border-color: #E2B43D;
+    background: radial-gradient(rgba(243, 229, 171, 0.2), transparent);
+}
+
+.kids-rhyme {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-main);
+    line-height: 1.8;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.kids-signoff {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--warm-red);
+    font-weight: 600;
+}
+
+.scene-rsvp {
+    background: linear-gradient(135deg, var(--ivory-base) 0%, rgba(225, 192, 143, 0.2) 100%);
+}
+
+.scrollable-content {
+    height: 90vh; /* Adjust height slightly */
+    overflow-y: auto;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 100px; /* Room for swipe icon */
+    scrollbar-width: thin;
+}
+
+.scrollable-content::-webkit-scrollbar { width: 4px; }
+.scrollable-content::-webkit-scrollbar-thumb { background-color: var(--gold-light); }
+
+.rsvp-heading {
+    font-family: var(--font-heading);
+    color: var(--gold-dark);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.rsvp-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.list-names {
+    color: var(--text-light);
+}
 
 /* Music Control */
 #music-control {
