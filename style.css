@@ -1,0 +1,418 @@
+:root {
+    /* Luxury Color Palette */
+    --ivory-base: #FDFBF7;
+    --ivory-dark: #F5F0E6;
+    --gold-primary: #D4AF37;
+    --gold-light: #F3E5AB;
+    --gold-dark: #AA8222;
+    --text-main: #3E3B32;
+    --text-light: #7A7463;
+    --warm-red: #8B2C2C;
+    --mehendi-green: #4A5D23;
+    --haldi-yellow: #E6B83B;
+    
+    /* Typography */
+    --font-heading: 'Cinzel', serif;
+    --font-script: 'Great Vibes', cursive;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--ivory-base);
+    overflow: hidden; /* Strict no scroll */
+}
+
+/* Base Utility Classes */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+
+/* =========================================
+   Slider System
+   ========================================= */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transform: translateX(100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    z-index: 20;
+}
+
+.slide.passed {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+/* Petals Canvas */
+#petals-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50; /* Above backgrounds, below cards */
+    pointer-events: none;
+}
+
+/* Global Swipe Indicator */
+#swipe-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    cursor: pointer;
+    text-align: center;
+}
+
+.swipe-animation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.8;
+}
+
+.swipe-text {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.arrow-container {
+    display: flex;
+    gap: -5px;
+    transform: rotate(180deg);
+}
+
+.arrow {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid var(--gold-primary);
+    border-right: 2px solid var(--gold-primary);
+    transform: rotate(45deg);
+    margin-right: -4px;
+    animation: swipeAnim 1.5s infinite;
+}
+
+.arrow-1 { animation-delay: 0s; }
+.arrow-2 { animation-delay: 0.15s; }
+.arrow-3 { animation-delay: 0.3s; }
+
+@keyframes swipeAnim {
+    0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+.zoom-in-anim {
+    animation: zoomInFade 2s ease forwards;
+}
+
+@keyframes zoomInFade {
+    0% { transform: scale(0.5); opacity: 0; filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0)); }
+    100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6)); }
+}
+
+.delay-show {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpFade 1s ease 2.5s forwards; /* 2.5s delay */
+}
+
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.slide-fade-stagger {
+    opacity: 0;
+    transform: translateY(15px);
+    /* Animation triggers securely via JS active class, but fallback here */
+}
+
+.slide.active .slide-fade-stagger {
+    animation: slideUpFade 1s ease forwards;
+    animation-delay: var(--delay);
+}
+
+/* Bonus: Hover Scale & Glow */
+.animated-scale-glow {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animated-scale-glow:hover, .animated-scale-glow:active {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+}
+
+
+/* =========================================
+   Intro Screen / Page 1
+   ========================================= */
+.slide-intro {
+    background-color: var(--ivory-base);
+    flex-direction: column;
+}
+
+.embossed-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--ivory-dark) 10%, transparent 11%), radial-gradient(var(--ivory-dark) 10%, transparent 11%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.fallback-icon {
+    font-size: 5rem;
+    color: var(--gold-primary);
+    line-height: 1;
+}
+
+.primary-btn {
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-dark);
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.primary-btn:hover {
+    background: var(--gold-primary);
+    color: #fff;
+}
+
+
+/* =========================================
+   Page 2 & Cards Styling
+   ========================================= */
+.scene-inner {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 100;
+}
+
+.content-bottom {
+    justify-content: flex-end;
+    height: 80vh;
+}
+
+.card {
+    background: rgba(253, 251, 247, 0.95);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--ivory-dark);
+}
+
+.card-border {
+    border: 1px solid var(--gold-light);
+    border-radius: 8px;
+    padding: 25px 15px;
+}
+
+.royal-message-card {
+    padding: 40px 20px;
+}
+
+.royal-message-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.royal-message-card .sub-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.royal-card {
+    background: rgba(26, 15, 10, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--ivory-base);
+    border: 1px solid var(--gold-dark);
+}
+
+.royal-card .script-title {
+    color: var(--gold-primary);
+}
+
+.royal-card .sub-text {
+    color: #dfdfdf;
+}
+
+.float-up {
+    /* Instead of intersection observer, we use slide active bounds */
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-delay: 0.3s;
+}
+
+.slide.active .float-up {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    color: var(--gold-dark);
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.script-title {
+    font-family: var(--font-script);
+    font-size: 3.5rem;
+    color: var(--gold-dark);
+    text-transform: none;
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    color: var(--text-light);
+}
+
+.date, .time, .dress-code {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.dress-code {
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--gold-dark);
+}
+
+.separator-line {
+    width: 50px;
+    height: 1px;
+    background: var(--gold-light);
+    margin: 15px auto;
+}
+
+/* =========================================
+   Themes / Colors for Scenes
+   ========================================= */
+.scene-welcome { background-color: var(--ivory-base); }
+.scene-lagun { background: linear-gradient(135deg, var(--ivory-base) 0%, rgba(225, 192, 143, 0.2) 100%); }
+.scene-haldi { background-color: #FFFDF5; }
+.yellow-glow {
+    position: absolute; width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(230, 184, 59, 0.15) 0%, rgba(230, 184, 59, 0) 70%);
+}
+.scene-mehendi {
+    background-color: #F8FAF6;
+    background-image: radial-gradient(rgba(74, 93, 35, 0.05) 2px, transparent 2px);
+    background-size: 30px 30px;
+}
+.green-tint { border-color: rgba(74, 93, 35, 0.2); }
+.scene-wedding { background-color: #1A100A; color: #fff; }
+.wedding-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('assets/floral_arch.png');
+    background-size: cover; background-position: center bottom; z-index: 1;
+}
+.wedding-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(26,16,10,0.7) 80%, rgba(26,16,10,0.9) 100%);
+    z-index: 2;
+}
+.scene-vidai { background: linear-gradient(to bottom, #1A100A 0%, var(--ivory-base) 100%); }
+
+.final-actions { display: flex; gap: 15px; margin-top: 40px; z-index: 100; }
+.action-btn { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-dark); padding: 12px 25px; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
+.rsvp-btn { background: var(--gold-primary); color: #fff; }
+.action-btn:hover { background: var(--gold-dark); color: #fff; }
+
+/* Music Control */
+#music-control {
+    position: fixed; bottom: 30px; right: 20px; width: 45px; height: 45px;
+    background: rgba(255, 255, 255, 0.8); border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; cursor: pointer;
+    z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); backdrop-filter: blur(5px);
+    color: var(--gold-dark); transition: all 0.3s ease;
+}
+#music-control:hover { transform: scale(1.1); }
+#music-control.muted { opacity: 0.5; }

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Meena Family | Wedding Invitation</title>
+    <meta name="description" content="You are invited to the majestic wedding union.">
+    <!-- Google Fonts for Luxury Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Subtle Page Transition Sound -->
+    <audio id="transition-sfx" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-swipe-whoosh-soft-2495.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Canvas for Floating Petals -->
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- Slider Container -->
+    <main id="main-content" class="slider-container">
+        
+        <!-- ================= PAGE 1: GANESHA INTRO ================= -->
+        <section class="slide slide-intro active" id="page-0">
+            <div class="embossed-bg"></div>
+            <div class="intro-content">
+                <div class="ganesha-container">
+                    <img src="assets/gold_ganesha.png" alt="Ganesha" id="ganesha-img" style="display:none;">
+                    <div class="fallback-icon zoom-in-anim">ॐ</div>
+                </div>
+                <!-- 2-3 Second Delayed Button -->
+                <div class="start-btn-container delay-show" id="start-node">
+                    <button class="primary-btn animated-scale-glow" onclick="nextSlide()">
+                        Accept Invitation, Let's Go
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 2: INVITATION MESSAGE ================= -->
+        <section class="slide scene-welcome" id="page-1">
+            <div class="scene-inner">
+                <div class="floral-frame-top"></div>
+                <div class="card royal-message-card float-up">
+                    <div class="card-border">
+                        <h2 class="slide-fade-stagger" style="--delay: 0.2s">Meena Family<br>Welcomes You</h2>
+                        <div class="separator-line slide-fade-stagger" style="--delay: 0.6s"></div>
+                        <p class="sub-text slide-fade-stagger" style="--delay: 1s">
+                            Mr. Mansingh Meena <br>and<br> Mrs. Hareshi Meena<br><br>
+                            cordially invite you to the wedding of <br><strong>Aisha & Rohan</strong>.<br><br>
+                            They request the honor of your presence to celebrate this joyous occasion and bless the couple on their special day.
+                        </p>
+                    </div>
+                </div>
+                <div class="floral-frame-bottom"></div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3: LAGUN ================= -->
+        <section class="slide scene-lagun" id="page-2">
+            <div class="scene-inner">
+                <div class="card float-up">
+                    <div class="card-border">
+                        <h2 class="script-title">Lagun</h2>
+                        <div class="separator-line"></div>
+                        <p class="sub-text">The commencement of our auspicious journey.</p>
+                        <p class="time">9:00 AM</p>
+                        <p class="date">09 March 2026</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 4: HALDI ================= -->
+        <section class="slide scene-haldi" id="page-3">
+            <div class="scene-inner">
+                <div class="yellow-glow"></div>
+                <div class="card float-up glass-card">
+                    <h2 class="script-title">Haldi</h2>
+                    <p class="sub-text">A splash of joy, a touch of gold.</p>
+                    <p class="time">10:30 AM</p>
+                    <p class="date">10 March 2026</p>
+                    <p class="dress-code">Dress Code: Yellow & Vibrant</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 5: MEHENDI ================= -->
+        <section class="slide scene-mehendi" id="page-4">
+            <div class="scene-inner">
+                <div class="card float-up glass-card green-tint">
+                    <h2 class="script-title">Mehendi</h2>
+                    <p class="sub-text">Intricate patterns of love.</p>
+                    <p class="time">4:00 PM</p>
+                    <p class="date">10 March 2026</p>
+                    <p class="dress-code">Dress Code: Earthy Greens</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 6: WEDDING ================= -->
+        <section class="slide scene-wedding" id="page-5">
+            <!-- This section uses the generated floral arch image as background -->
+            <div class="wedding-bg"></div>
+            <div class="wedding-overlay"></div>
+            <div class="scene-inner content-bottom">
+                <div class="card float-up royal-card">
+                    <h2 class="script-title">The Wedding</h2>
+                    <p class="sub-text">Witness our union under the floral arch.</p>
+                    <p class="time">Baraat: 7:00 PM | Pheras: 11:30 PM</p>
+                    <p class="date">11 March 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 7: VIDAI ================= -->
+        <section class="slide scene-vidai" id="page-6">
+            <div class="scene-inner">
+                <div class="card float-up glass-card soft-card">
+                    <h2 class="script-title">Vidai</h2>
+                    <p class="sub-text">A heartfelt farewell, a new beginning.</p>
+                    <p class="time">Early Morning</p>
+                    <p class="date">12 March 2026</p>
+                </div>
+            </div>
+            
+            <div class="final-actions float-up delay-show-vidai">
+                <button class="action-btn" onclick="openMap()">View Map</button>
+                <button class="action-btn rsvp-btn">RSVP</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Swipe Indicator (Hidden on Page 1) -->
+    <div id="swipe-indicator" class="hidden" onclick="nextSlide(true)">
+        <div class="swipe-animation-container">
+            <div class="arrow-container">
+                <span class="arrow arrow-1"></span>
+                <span class="arrow arrow-2"></span>
+                <span class="arrow arrow-3"></span>
+            </div>
+            <span class="swipe-text">Swipe for Next Event</span>
+        </div>
+    </div>
+
+    <!-- Music Control -->
+    <div id="music-control" class="hidden">
+        <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
