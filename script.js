@@ -61,6 +61,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    window.prevSlide = function() {
+        if (currentSlideIndex <= 0) return;
+
+        // Play subtle swoosh effect
+        sfx.volume = 0.2;
+        sfx.currentTime = 0;
+        sfx.play().catch(e => console.log("SFX play prevented", e));
+
+        slides[currentSlideIndex].classList.remove('active');
+        
+        currentSlideIndex--;
+        
+        slides[currentSlideIndex].classList.remove('passed');
+        slides[currentSlideIndex].classList.add('active');
+
+        // Manage UI elements based on slide
+        if (currentSlideIndex > 0 && currentSlideIndex < totalSlides - 1) {
+            swipeIndicator.classList.add('hidden');
+            setTimeout(() => {
+                swipeIndicator.classList.remove('hidden');
+            }, 2000); 
+        } else {
+            swipeIndicator.classList.add('hidden');
+        }
+    }
+
     // Swipe logic for mobile
     let touchStartX = 0;
     let touchEndX = 0;
@@ -76,8 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleSwipe() {
         if (touchEndX < touchStartX - 50) {
-            // Swiped left
+            // Swiped left (go to next)
             nextSlide(true);
+        } else if (touchEndX > touchStartX + 50) {
+            // Swiped right (go back)
+            prevSlide();
         }
     }
 

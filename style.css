@@ -211,26 +211,34 @@ body, html {
    Intro Screen / Page 1
    ========================================= */
 .slide-intro {
-    background-color: var(--ivory-base);
+    background-color: #000; /* fallback for video */
     flex-direction: column;
 }
 
-.embossed-bg {
+.bg-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(var(--ivory-dark) 10%, transparent 11%), radial-gradient(var(--ivory-dark) 10%, transparent 11%);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 10px;
-    opacity: 0.3;
+    object-fit: cover;
     z-index: 1;
+}
+
+.video-overlay-intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark subtle overlay to ensure button legibility regardless of video colors */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+    z-index: 2;
 }
 
 .intro-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -261,6 +269,22 @@ body, html {
 .primary-btn:hover {
     background: var(--gold-primary);
     color: #fff;
+}
+
+.video-match-btn {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.video-match-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    border-color: #fff;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.6);
 }
 
 
@@ -301,6 +325,46 @@ body, html {
 
 .royal-message-card {
     padding: 40px 20px;
+}
+
+/* Video matching text colors ensuring legibility on varying backgrounds */
+.video-match-card {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff;
+}
+.video-match-card h2,
+.video-match-card .video-text-header {
+    font-family: var(--font-heading) !important;
+    font-size: 2.2rem !important;
+    letter-spacing: 3px !important;
+    color: #ffffff !important;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.5);
+}
+.video-match-card .separator-line {
+    background: rgba(255, 255, 255, 0.6) !important;
+    height: 2px !important;
+    margin: 20px auto !important;
+}
+.video-match-card .sub-text,
+.video-match-card .video-text-body {
+    font-family: var(--font-body) !important;
+    font-size: 1.15rem !important;
+    line-height: 1.8 !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.6);
+}
+.video-match-card .highlight-names,
+.video-match-card .video-highlight {
+    display: inline-block;
+    margin-top: 15px;
+    font-family: var(--font-script) !important;
+    font-size: 3.5rem !important;
+    font-weight: normal !important;
+    color: var(--gold-light) !important;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7);
 }
 
 .royal-message-card h2 {

@@ -24,18 +24,20 @@
 
     <main id="main-content" class="slider-container">
         
-        <!-- PAGE 0: GANESHA INTRO -->
+        <!-- PAGE 0: VIDEO INTRO -->
         <section class="slide slide-intro active" id="page-0">
-            <div class="embossed-bg"></div>
+            <!-- Fullscreen Video Background -->
+            <video class="bg-video" autoplay loop muted playsinline>
+                <source src="videos/V1.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay-intro"></div>
+            
             <div class="intro-content">
-                <div class="ganesha-container">
-                    <img src="assets/gold_ganesha.png" alt="Ganesha" id="ganesha-img" style="display:none;">
-                    <div class="fallback-icon zoom-in-anim">ॐ</div>
-                </div>
+                <!-- OM Symbol removed per request -->
             </div>
             <!-- Placed outside of intro-content so we can absolutely position it at the bottom -->
             <div class="start-btn-container delay-show-btn" id="start-node">
-                <button class="primary-btn animated-scale-glow" onclick="nextSlide()">
+                <button class="primary-btn video-match-btn animated-scale-glow" onclick="nextSlide()">
                     Accept Invitation, Let's Go
                 </button>
             </div>
@@ -43,16 +45,21 @@
 
         <!-- PAGE 1: INVITATION MESSAGE -->
         <section class="slide scene-welcome" id="page-1">
+            <video class="bg-video" autoplay loop muted playsinline>
+                <source src="videos/V2.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay-intro"></div>
+
             <div class="scene-inner">
                 <div class="floral-frame-top"></div>
-                <div class="card royal-message-card float-up">
-                    <div class="card-border">
-                        <h2 class="slide-fade-stagger" style="--delay: 0.2s">Meena Family<br>Welcomes You</h2>
-                        <div class="separator-line slide-fade-stagger" style="--delay: 0.6s"></div>
-                        <p class="sub-text slide-fade-stagger" style="--delay: 1s">
+                <div class="card royal-message-card float-up video-match-card">
+                    <div class="card-border video-card-border">
+                        <h2 class="slide-fade-stagger video-text-header" style="--delay: 0.2s">Meena Family<br>Welcomes You</h2>
+                        <div class="separator-line video-separator slide-fade-stagger" style="--delay: 0.6s"></div>
+                        <p class="sub-text slide-fade-stagger video-text-body" style="--delay: 1s">
                             With the divine grace of God,<br><br>
                             We request the honor of your presence and blessings to celebrate the auspicious wedding of<br><br>
-                            <span class="highlight-names">Deepti & Deepak</span>
+                            <span class="highlight-names video-highlight">Deepti & Deepak</span>
                         </p>
                     </div>
                 </div>
@@ -111,7 +118,6 @@
                     <p class="sub-text">A splash of joy and intricate patterns of love.</p>
                     <p class="time">Evening</p>
                     <p class="date">27 April 2026 (Monday)</p>
-                    <p class="dress-code">Dress Code: Yellow & Earthy Greens</p>
                 </div>
             </div>
         </section>
